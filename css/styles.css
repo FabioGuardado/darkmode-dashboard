@@ -1,0 +1,398 @@
+/* GLOBALS */
+:root {
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram1: hsl(37, 97%, 70%);
+    --Instagram2: hsl(329, 70%, 58%);
+    --YouTube: hsl(348, 97%, 39%);
+    --Background: hsl(0, 0%, 100%);
+    --HeaderBG: hsl(225, 100%, 98%);
+    --CardBG: hsl(227, 47%, 96%);
+    --DarkGrayishBlue: hsl(228, 12%, 44%);
+    --VeryDarkBlue: hsl(230, 17%, 14%);
+
+    /* DARK THEME COLORS */
+    --DarkBackground: hsl(230, 17%, 14%);
+    --DarkHeaderBG: hsl(232, 19%, 15%);
+    --DarkCardBG: hsl(228, 28%, 20%);
+    --DisaturedBlue: hsl(228, 34%, 66%);
+    --White: hsl(0, 0%, 100%);
+}
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--Background);
+}
+body.is-dark-mode {
+    background-color: var(--DarkBackground);
+}
+
+.wrapper {
+    padding: 0 30px;
+    max-width: 720px;
+    margin: auto;
+}
+.grid {
+    display: grid;
+    grid-row-gap: 25px;
+}
+.dark-mode {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+.checkbox {
+    display: none;
+}
+.checkbox:checked ~ .switch::before {
+    transform: translateX(0);
+}
+.switch {
+    height: 40px;
+    width: 80px;
+    display: block;
+    border-radius: 30px;
+    background-color: hsl(230, 22%, 74%);
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+body.is-dark-mode .switch {
+    background-image: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.switch::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    transform: translateX(40px);
+    transition: all ease 0.3s;
+    will-change: transform;
+}
+
+body.is-dark-mode .switch::before {
+    background-color: var(--DarkHeaderBG);
+}
+
+/* HEADER */
+header {
+    padding-top: 2rem;
+    background-color: var(--HeaderBG);
+    padding-bottom: 75px;
+    border-radius: 0 0 20px 20px;
+}
+
+body.is-dark-mode header {
+    background-color: var(--DarkHeaderBG);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.7rem;
+    color: var(--VeryDarkBlue);
+
+}
+body.is-dark-mode header h1 {
+    color: var(--White);
+}
+
+.header-counter{
+    color: var(--DarkGrayishBlue);
+    margin: 0.5rem 0;
+    font-weight: 600;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--DarkGrayishBlue);
+}
+
+body.is-dark-mode .header-counter {
+    color: var(--DisaturedBlue);
+    border-bottom-color: var(--DisaturedBlue);
+}
+
+.dark-mode {
+    color: var(--DarkGrayishBlue);
+}
+
+body.is-dark-mode .dark-mode {
+    color: var(--DisaturedBlue);
+}
+
+.top-cards {
+    margin-top: -50px;
+}
+
+/* CARDS */
+.card {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--CardBG);
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.256);
+}
+body.is-dark-mode .card {
+    background-color: var(--DarkCardBG);
+}
+.card:before {
+    content: "";
+    height: 4px;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.facebook:before {
+    background: var(--Facebook);
+}
+.twitter:before {
+    background: var(--Twitter);
+}
+.instagram:before {
+    background-image: linear-gradient(to right, var(--Instagram1), var(--Instagram2));
+}
+.youtube:before {
+    background: var(--YouTube);
+}
+
+.card-title {
+    margin-top: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--DarkGrayishBlue);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+body.is-dark-mode .card-title {
+    color: var(--DisaturedBlue);
+}
+
+.card-title img {
+    margin-right: 7px;
+
+}
+
+body.is-dark-mode .card-followers-title {
+    color: var(--DisaturedBlue);
+}
+
+.card-followers-number {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--VeryDarkBlue);
+}
+
+body.is-dark-mode .card-followers-number {
+    color: var(--White);
+}
+
+.card-followers-title {
+    display: block;
+    text-transform: uppercase;
+    color: var(--DarkGrayishBlue);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+}
+
+.card-today {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: var(--LimeGreen);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+.card-today img {
+    margin-right: 4px;
+}
+.card:last-of-type {
+    margin-bottom: 2rem;
+}
+
+/* OVERVIEW */
+.overview {
+    margin-bottom: 100px;
+}
+
+.overview h2 {
+    color: var(--DarkGrayishBlue);
+    display: block;
+    margin: 0.8rem 0;
+}
+
+body.is-dark-mode .overview h2 {
+    color: var(--White);
+}
+
+.card-small:first-of-type {
+    margin-top: 1rem;
+}
+
+.card-small {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1rem;
+    background-color: var(--CardBG);
+    border-radius: 7px;
+    padding: 1.5rem;
+}
+
+body.is-dark-mode .card-small{
+    background-color: var(--DarkCardBG);
+}
+
+.card-small p {
+    margin: 0;
+}
+.card-small-views {
+    color: var(--DarkGrayishBlue);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+body.is-dark-mode .card-small-views{
+    color: var(--DisaturedBlue); 
+}
+
+.card-small-icon {
+    text-align: right;
+}
+.card-small-number {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--VeryDarkBlue);
+    line-height: 0.9;
+
+}
+
+body.is-dark-mode .card-small-number {
+    color: var(--White);
+}
+
+.card-small-percentage {
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.card-small-percentage.up {
+    color: var(--LimeGreen);
+}
+.card-small-percentage.down {
+    color: var(--BrightRed);
+}
+.card-small-percentage span {
+    display: flex;
+    align-items: center;
+}
+.card-small-percentage span img {
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 25px;
+    }
+    .wrapper {
+        max-width: 1440px;
+        margin: auto;
+    }
+    .card:last-of-type {
+        margin-bottom: 0;
+    }
+    .card-small:first-of-type {
+        margin-top: 0;
+    }
+    .overview h2 {
+        margin: 2rem 0 1rem 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .header-counter {
+        border: none;
+    }
+    .header-grid {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --DarkBackground: hsl(230, 17%, 14%);
+        --DarkHeaderBG: hsl(232, 19%, 15%);
+        --DarkCardBG: hsl(228, 28%, 20%);
+        --DisaturedBlue: hsl(228, 34%, 66%);
+        --White: hsl(0, 0%, 100%);
+    }
+    body {
+        background-color: var(--DarkBackground);
+    }
+    header {
+        background-color: var(--DarkHeaderBG);
+    }
+    .card {
+        background-color: var(--DarkCardBG);
+    }
+    header h1 {
+        color: var(--White);
+    }
+    .header-counter {
+        color: var(--DisaturedBlue);
+        border-bottom-color: var(--DisaturedBlue);
+    }
+    .dark-mode {
+        color: var(--DisaturedBlue);
+    }
+    .card-title {
+        color: var(--DisaturedBlue);
+    }
+    .card-followers-number {
+        color: var(--White);
+    }
+    .card-followers-title {
+        color: var(--DisaturedBlue);
+    }
+    .overview h2 {
+        color: var(--White);
+    }
+    .card-small{
+        background-color: var(--DarkCardBG);
+    }
+    .card-small-views{
+        color: var(--DisaturedBlue); 
+    }
+    .card-small-number {
+        color: var(--White);
+    }
+    .switch {
+        background-image: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    }
+    .switch::before {
+        background-color: var(--DarkHeaderBG);
+    }
+} */
